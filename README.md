@@ -75,3 +75,7 @@ This lab demonstrates statistical implementation under known synthetic condition
 ## Citation
 
 Citation metadata are available in [`CITATION.cff`](CITATION.cff).
+
+## License
+
+Code and documentation are available under the [MIT License](LICENSE).
