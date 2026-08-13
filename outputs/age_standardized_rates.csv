@@ -1,0 +1,6 @@
+district,cases,person_weeks,crude_rate,standardized_rate,standard_error,lower_95,upper_95
+North,113,95000,118.95,128.78,12.36,104.56,153.0
+Central,114,110000,103.64,107.77,10.21,87.75,127.79
+South,144,84000,171.43,185.77,15.91,154.59,216.95
+Harbor,92,76000,121.05,133.18,14.27,105.21,161.15
+

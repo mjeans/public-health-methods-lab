@@ -1,0 +1,4 @@
+measure,contrast,mean_a,mean_b,difference,standard_error,lower_95,upper_95
+"Fiber (g per 1,000 kcal)",Nutrition education minus comparison,13.639,9.571,4.068,0.958,2.19,5.946
+"Sodium (mg per 1,000 kcal)",Nutrition education minus comparison,1170.538,1504.918,-334.38,69.846,-471.275,-197.484
+
