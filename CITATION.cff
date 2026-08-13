@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this methods portfolio or its statistical implementation, please cite it as follows."
+title: "Public Health Methods Lab"
+type: software
+authors:
+  - family-names: Jeans
+    given-names: Matthew
+repository-code: "https://github.com/mjeans/public-health-methods-lab"
+url: "https://github.com/mjeans/public-health-methods-lab"
+abstract: "Reproducible nutrition epidemiology, surveillance, outbreak, and survival-analysis case studies with synthetic data, tests, and continuous integration."
+keywords:
+  - public health
+  - nutritional epidemiology
+  - epidemiology
+  - biostatistics
+  - surveillance
