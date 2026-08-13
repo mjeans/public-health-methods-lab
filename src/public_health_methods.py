@@ -247,4 +247,3 @@ def median_event_time(curve: Sequence[Mapping[str, float | int]]) -> float | Non
         if float(row["survival"]) <= 0.5:
             return float(row["time"])
     return None
-

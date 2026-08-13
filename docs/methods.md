@@ -55,4 +55,3 @@ The comparison is descriptive. Censoring is assumed to be non-informative for th
 ## Privacy and reporting
 
 No real health information is stored. In real public-health reporting, the analytic plan should specify minimum-cell suppression, complementary suppression where needed, geographic aggregation, access controls, retention rules, and disclosure review before publication.
-

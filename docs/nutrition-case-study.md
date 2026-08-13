@@ -26,4 +26,3 @@ The energy-density approach makes nutrient comparisons less dependent on total r
 The data are synthetic and the groups are not randomized. Differences therefore demonstrate the calculation and reporting workflow, not the effect of nutrition education. Two recalls do not establish usual intake, underreporting and correlated errors are not modeled, no clinical or dietary-guideline classification is made, and the normal confidence intervals are illustrative for a small constructed sample.
 
 A real nutritional-epidemiology analysis would prespecify the dietary assessment method, quality-control rules, energy-adjustment strategy, within-person variation model, covariates, survey design, missing-data approach, multiplicity plan, and population-specific interpretation.
-

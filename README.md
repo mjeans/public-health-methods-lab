@@ -71,4 +71,3 @@ The GitHub Actions workflow runs the tests, rebuilds every output, and fails if 
 ## Responsible interpretation
 
 This lab demonstrates statistical implementation under known synthetic conditions. A real analysis would require a protocol, data provenance review, dietary-instrument and case-definition governance, missingness assessment, small-cell rules, privacy review, appropriate measurement and surveillance methods, design-aware inference, and subject-matter interpretation. Statistical associations and alert thresholds do not identify causes on their own.
-

@@ -9,4 +9,3 @@ These outputs are generated from deterministic synthetic data.
 - **Nutrition epidemiology:** the synthetic nutrition-education group had 4.07 more grams of fiber and 334.4 fewer milligrams of sodium per 1,000 kcal than the comparison group.
 
 These results demonstrate implementation, not real-world evidence. The data are synthetic, the surveillance threshold is illustrative, and the outreach comparison is descriptive rather than causal.
-
