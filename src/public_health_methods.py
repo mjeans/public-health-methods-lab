@@ -7,7 +7,7 @@ should use validated statistical libraries and a prespecified analysis plan.
 
 from __future__ import annotations
 
-from math import exp, log, sqrt
+from math import exp, isfinite, log, sqrt
 from statistics import mean, stdev
 from typing import Iterable, Mapping, Sequence
 
@@ -30,10 +30,18 @@ def direct_standardized_rate(
     rows = list(strata)
     if not rows:
         raise ValueError("At least one stratum is required")
-    if multiplier <= 0:
+    if not isfinite(multiplier) or multiplier <= 0:
         raise ValueError("multiplier must be positive")
 
-    standard_total = sum(float(value) for value in standard_population.values())
+    weights = [float(value) for value in standard_population.values()]
+    if any(not isfinite(value) or value < 0 for value in weights):
+        raise ValueError("standard weights must be finite and nonnegative")
+    groups = [str(row["age_group"]) for row in rows]
+    if len(set(groups)) != len(groups):
+        raise ValueError("each age stratum must appear exactly once")
+    if set(groups) != set(standard_population):
+        raise ValueError("observed strata must exactly cover the standard population")
+    standard_total = sum(weights)
     if standard_total <= 0:
         raise ValueError("standard population must have positive total weight")
 
@@ -49,8 +57,9 @@ def direct_standardized_rate(
 
         cases = float(row["cases"])
         person_time = float(row["person_time"])
-        if cases < 0 or person_time <= 0 or cases > person_time:
-            raise ValueError("cases must be between zero and positive person-time")
+        if (not isfinite(cases) or not isfinite(person_time) or
+                cases < 0 or not cases.is_integer() or person_time <= 0):
+            raise ValueError("cases must be finite nonnegative counts; person-time positive")
 
         weight = float(standard_population[age_group]) / standard_total
         stratum_rate = cases / person_time
@@ -111,6 +120,8 @@ def nutrient_density(
 ) -> float:
     """Express a nutrient amount per a specified number of kilocalories."""
 
+    if not all(isfinite(x) for x in (nutrient_amount, energy_kcal, per_kcal)):
+        raise ValueError("nutrient density inputs must be finite")
     if nutrient_amount < 0:
         raise ValueError("nutrient amount cannot be negative")
     if energy_kcal <= 0 or per_kcal <= 0:
@@ -125,6 +136,8 @@ def mean_difference(
 
     if len(group_a) < 2 or len(group_b) < 2:
         raise ValueError("each group must contain at least two observations")
+    if not all(isfinite(x) for x in [*group_a, *group_b]):
+        raise ValueError("mean-difference observations must be finite")
     estimate = mean(group_a) - mean(group_b)
     standard_error = sqrt(
         (stdev(group_a) ** 2 / len(group_a))
@@ -142,35 +155,43 @@ def mean_difference(
 
 def weekly_z_signals(
     counts: Sequence[int], baseline_weeks: int = 4, threshold: float = 2.5
-) -> list[dict[str, float | int | bool | None]]:
+) -> list[dict[str, float | int | str | bool | None]]:
     """Flag simple weekly surveillance signals against a rolling baseline.
 
     This is an educational illustration, not a replacement for established
     aberration-detection methods or health-department alert protocols.
     """
 
-    if baseline_weeks < 2:
+    if not isinstance(baseline_weeks, int) or baseline_weeks < 2:
         raise ValueError("baseline_weeks must be at least two")
-    if any(count < 0 for count in counts):
-        raise ValueError("weekly counts cannot be negative")
+    if any(not isfinite(count) or count < 0 or int(count) != count for count in counts):
+        raise ValueError("weekly counts must be finite nonnegative integers")
+    if not isfinite(threshold) or threshold <= 0:
+        raise ValueError("threshold must be finite and positive")
 
-    results: list[dict[str, float | int | bool | None]] = []
+    results: list[dict[str, float | int | str | bool | None]] = []
     for index, count in enumerate(counts):
         if index < baseline_weeks:
             results.append(
-                {"week": index + 1, "count": count, "z_score": None, "signal": False}
+                {"week": index + 1, "count": count, "z_score": None,
+                 "signal": None, "status": "insufficient_baseline",
+                 "baseline_mean": None, "upper_threshold": None}
             )
             continue
 
         baseline = counts[index - baseline_weeks : index]
         baseline_sd = stdev(baseline)
-        z_score = 0.0 if baseline_sd == 0 else (count - mean(baseline)) / baseline_sd
+        baseline_mean = mean(baseline)
+        z_score = None if baseline_sd == 0 else (count - baseline_mean) / baseline_sd
         results.append(
             {
                 "week": index + 1,
                 "count": count,
                 "z_score": z_score,
-                "signal": z_score >= threshold,
+                "signal": None if z_score is None else z_score >= threshold,
+                "status": "constant_baseline_review_required" if z_score is None else "evaluated",
+                "baseline_mean": baseline_mean,
+                "upper_threshold": None if z_score is None else baseline_mean + threshold * baseline_sd,
             }
         )
     return results
@@ -188,7 +209,7 @@ def kaplan_meier(
 
     if not records:
         raise ValueError("At least one survival record is required")
-    if any(time < 0 or event not in (0, 1) for time, event in records):
+    if any(not isfinite(time) or time < 0 or event not in (0, 1) for time, event in records):
         raise ValueError("times must be nonnegative and event must be zero or one")
 
     times = sorted({float(time) for time, _ in records})

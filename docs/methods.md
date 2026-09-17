@@ -28,11 +28,15 @@ Var(R_std) = sum(w_i^2 * d_i / n_i^2)
 
 The lab reports the standardized rate and a normal-approximation 95% confidence interval per 100,000 person-weeks. A production analysis should prespecify the standard population, consider exact or gamma-based intervals when counts are sparse, and preserve the stratum-level data needed to audit the calculation.
 
+Observed age categories must match the standard population exactly once. Missing or duplicate strata, nonfinite inputs, negative weights, nonpositive person-time, or invalid counts fail explicitly. Rates may exceed one depending on the person-time unit. The paired figure distinguishes crude open points from standardized filled points; intervals belong only to the standardized estimate.
+
 ## Surveillance signal
 
 Each week after the first four is compared with the preceding four-week mean and sample standard deviation. A z-score at or above 2.5 is labeled a signal. This rule is deliberately simple and inspectable. It does not adjust for seasonality, secular trend, reporting delay, day-of-week effects, overdispersion, or multiple monitoring.
 
 Real surveillance work should use a method and alert protocol suited to the outcome, reporting process, and operational consequences. A statistical signal should prompt verification, not automatically declare an outbreak.
+
+Insufficient history is reported as `insufficient_baseline`, with no z-score or signal decision. A constant baseline is `constant_baseline_review_required`, also with no z-score or signal decision—even if the next count rises sharply. Unknown is not equivalent to no signal. Counts must be finite nonnegative integers; the exported status column makes these cases machine-readable.
 
 ## Cohort risk ratio
 
@@ -51,6 +55,8 @@ The risk ratio is an association conditional on the case definition, enrollment,
 The retention example treats disengagement from care as the event and ongoing observation as right-censoring. At each event time, the Kaplan-Meier estimator multiplies the preceding survival probability by `1 - d_j / n_j`. Events are processed before censoring at tied times. Confidence limits use Greenwood's variance and a log-log transformation.
 
 The comparison is descriptive. Censoring is assumed to be non-informative for the displayed estimator, and the synthetic outreach groups were not randomized. A causal comparison would require an appropriate design and adjustment strategy; a multivariable time-to-event analysis would also require proportional-hazards and functional-form checks when a Cox model is used.
+
+The figure includes pointwise Greenwood log-log 95% confidence bands, right-censoring ticks, and unweighted numbers at risk immediately before days 0, 30, 60, and 90. Bands are not simultaneous intervals or tests of group differences. Follow-up is not extended beyond observed support.
 
 ## Privacy and reporting
 

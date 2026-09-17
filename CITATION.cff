@@ -6,6 +6,7 @@ license: MIT
 authors:
   - family-names: Jeans
     given-names: Matthew
+    orcid: "https://orcid.org/0000-0002-1140-3185"
 repository-code: "https://github.com/mjeans/public-health-methods-lab"
 url: "https://github.com/mjeans/public-health-methods-lab"
 abstract: "Reproducible nutrition epidemiology, surveillance, outbreak, and survival-analysis case studies with synthetic data, tests, and continuous integration."
