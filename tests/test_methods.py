@@ -23,6 +23,41 @@ from public_health_methods import (  # noqa: E402
 
 
 class TestEpidemiologyMethods(unittest.TestCase):
+    def test_standardization_rejects_incomplete_duplicate_or_invalid_strata(self) -> None:
+        rows = [{"age_group": "a", "cases": 2, "person_time": 100},
+                {"age_group": "b", "cases": 3, "person_time": 100}]
+        for invalid, weights in [(rows[:1], {"a": 1, "b": 1}),
+                                 (rows + rows[:1], {"a": 1, "b": 1}),
+                                 (rows, {"a": -1, "b": 2}),
+                                 (rows, {"a": float("nan"), "b": 1})]:
+            with self.subTest(invalid=invalid, weights=weights):
+                with self.assertRaises(ValueError):
+                    direct_standardized_rate(invalid, weights)
+        # Rates depend on the unit of person-time and need not be below one.
+        result = direct_standardized_rate(
+            [{"age_group": "a", "cases": 2, "person_time": .5}], {"a": 1}, 1)
+        self.assertEqual(result["standardized_rate"], 4)
+
+    def test_flat_baseline_is_unknown_not_a_negative_signal(self) -> None:
+        for final in (10, 100):
+            result = weekly_z_signals([10, 10, 10, 10, final])[-1]
+            self.assertIsNone(result["signal"])
+            self.assertIsNone(result["z_score"])
+            self.assertEqual(result["status"], "constant_baseline_review_required")
+        for counts in ([1, 2, float("nan")], [1, -1], [1, 2.5]):
+            with self.assertRaises(ValueError):
+                weekly_z_signals(counts)
+
+    def test_km_ties_and_risk_set(self) -> None:
+        curve = kaplan_meier([(1, 1), (1, 0), (2, 1), (3, 0)])
+        self.assertEqual(curve[1]["at_risk"], 4)
+        self.assertEqual(curve[1]["survival"], .75)
+        self.assertEqual(curve[2]["at_risk"], 2)
+        self.assertEqual(curve[2]["survival"], .375)
+        for row in curve:
+            self.assertLessEqual(row["lower_95"], row["survival"])
+            self.assertGreaterEqual(row["upper_95"], row["survival"])
+
     def test_standardized_rate_matches_common_stratum_rate(self) -> None:
         strata = [
             {"age_group": "younger", "cases": 10, "person_time": 10_000},

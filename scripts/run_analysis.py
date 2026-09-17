@@ -186,103 +186,8 @@ def nutrition_results() -> tuple[list[dict[str, object]], list[dict[str, object]
     return summaries, contrasts
 
 
-def write_rate_svg(rows: list[dict[str, object]]) -> None:
-    width, height = 760, 420
-    chart_left, chart_bottom, chart_height = 95, 345, 265
-    max_rate = max(float(row["upper_95"]) for row in rows) * 1.10
-    bar_width = 92
-    gap = 55
-    colors = ["#0f766e", "#2563eb", "#dc2626", "#7c3aed"]
-    pieces = [
-        f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}">',
-        '<rect width="100%" height="100%" fill="#f8fafc"/>',
-        '<text x="36" y="42" font-family="Arial" font-size="22" font-weight="700" fill="#0f172a">Age-standardized surveillance rates</text>',
-        '<text x="36" y="67" font-family="Arial" font-size="13" fill="#475569">Synthetic cases per 100,000 person-weeks; bars show approximate 95% CIs</text>',
-        f'<line x1="{chart_left}" y1="{chart_bottom}" x2="700" y2="{chart_bottom}" stroke="#94a3b8"/>',
-    ]
-    for tick in range(0, int(max_rate) + 1, 50):
-        y = chart_bottom - (tick / max_rate) * chart_height
-        pieces.extend(
-            [
-                f'<line x1="{chart_left}" y1="{y:.1f}" x2="700" y2="{y:.1f}" stroke="#e2e8f0"/>',
-                f'<text x="82" y="{y + 4:.1f}" text-anchor="end" font-family="Arial" font-size="11" fill="#64748b">{tick}</text>',
-            ]
-        )
-    for index, row in enumerate(rows):
-        x = chart_left + 38 + index * (bar_width + gap)
-        rate = float(row["standardized_rate"])
-        lower = float(row["lower_95"])
-        upper = float(row["upper_95"])
-        y = chart_bottom - (rate / max_rate) * chart_height
-        bar_height = chart_bottom - y
-        y_low = chart_bottom - (lower / max_rate) * chart_height
-        y_high = chart_bottom - (upper / max_rate) * chart_height
-        pieces.extend(
-            [
-                f'<rect x="{x}" y="{y:.1f}" width="{bar_width}" height="{bar_height:.1f}" rx="5" fill="{colors[index]}"/>',
-                f'<line x1="{x + bar_width / 2}" y1="{y_high:.1f}" x2="{x + bar_width / 2}" y2="{y_low:.1f}" stroke="#0f172a" stroke-width="2"/>',
-                f'<line x1="{x + 30}" y1="{y_high:.1f}" x2="{x + 62}" y2="{y_high:.1f}" stroke="#0f172a" stroke-width="2"/>',
-                f'<line x1="{x + 30}" y1="{y_low:.1f}" x2="{x + 62}" y2="{y_low:.1f}" stroke="#0f172a" stroke-width="2"/>',
-                f'<text x="{x + bar_width / 2}" y="{y - 9:.1f}" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#0f172a">{rate:.1f}</text>',
-                f'<text x="{x + bar_width / 2}" y="371" text-anchor="middle" font-family="Arial" font-size="12" fill="#334155">{row["district"]}</text>',
-            ]
-        )
-    pieces.append('</svg>')
-    (ASSETS / "age-standardized-rates.svg").write_text(
-        "\n".join(pieces), encoding="utf-8", newline="\n"
-    )
+from research_figures import rates as plot_rates, retention as plot_retention, nutrition as plot_nutrition
 
-
-def write_km_svg(rows: list[dict[str, object]]) -> None:
-    width, height = 760, 420
-    left, bottom, plot_width, plot_height = 90, 345, 610, 255
-    colors = {"Enhanced outreach": "#0f766e", "Standard outreach": "#dc2626"}
-    pieces = [
-        f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}">',
-        '<rect width="100%" height="100%" fill="#f8fafc"/>',
-        '<text x="36" y="42" font-family="Arial" font-size="22" font-weight="700" fill="#0f172a">Retention in care</text>',
-        '<text x="36" y="67" font-family="Arial" font-size="13" fill="#475569">Kaplan-Meier estimate; event is disengagement from a synthetic care program</text>',
-        f'<line x1="{left}" y1="{bottom}" x2="{left + plot_width}" y2="{bottom}" stroke="#94a3b8"/>',
-        f'<line x1="{left}" y1="{bottom - plot_height}" x2="{left}" y2="{bottom}" stroke="#94a3b8"/>',
-    ]
-    for tick in (0, 0.25, 0.5, 0.75, 1.0):
-        y = bottom - tick * plot_height
-        pieces.extend(
-            [
-                f'<line x1="{left}" y1="{y:.1f}" x2="{left + plot_width}" y2="{y:.1f}" stroke="#e2e8f0"/>',
-                f'<text x="{left - 12}" y="{y + 4:.1f}" text-anchor="end" font-family="Arial" font-size="11" fill="#64748b">{tick:.2f}</text>',
-            ]
-        )
-    for tick in (0, 30, 60, 90):
-        x = left + tick / 90 * plot_width
-        pieces.append(f'<text x="{x:.1f}" y="368" text-anchor="middle" font-family="Arial" font-size="11" fill="#64748b">{tick}</text>')
-
-    for group, color in colors.items():
-        group_rows = [row for row in rows if row["group"] == group]
-        path_parts = [f'M {left} {bottom - plot_height}']
-        previous_survival = 1.0
-        for row in group_rows[1:]:
-            x = left + float(row["time"]) / 90 * plot_width
-            current_survival = float(row["survival"])
-            old_y = bottom - previous_survival * plot_height
-            new_y = bottom - current_survival * plot_height
-            path_parts.extend([f'H {x:.1f}', f'V {new_y:.1f}'])
-            previous_survival = current_survival
-        path_parts.append(f'H {left + plot_width}')
-        pieces.append(f'<path d="{" ".join(path_parts)}" fill="none" stroke="{color}" stroke-width="3"/>')
-
-    pieces.extend(
-        [
-            '<line x1="438" y1="105" x2="470" y2="105" stroke="#0f766e" stroke-width="3"/><text x="478" y="110" font-family="Arial" font-size="12" fill="#334155">Enhanced outreach</text>',
-            '<line x1="438" y1="128" x2="470" y2="128" stroke="#dc2626" stroke-width="3"/><text x="478" y="133" font-family="Arial" font-size="12" fill="#334155">Standard outreach</text>',
-            '<text x="395" y="402" text-anchor="middle" font-family="Arial" font-size="12" fill="#334155">Days since enrollment</text>',
-            '<text x="20" y="225" transform="rotate(-90 20 225)" text-anchor="middle" font-family="Arial" font-size="12" fill="#334155">Probability retained</text>',
-            '</svg>',
-        ]
-    )
-    (ASSETS / "retention-curves.svg").write_text(
-        "\n".join(pieces), encoding="utf-8", newline="\n"
-    )
 
 
 def main() -> None:
@@ -299,6 +204,9 @@ def main() -> None:
             "count": row["count"],
             "z_score": "" if row["z_score"] is None else round(float(row["z_score"]), 3),
             "signal": row["signal"],
+            "status": row["status"],
+            "baseline_mean": row["baseline_mean"],
+            "upper_threshold": row["upper_threshold"],
         }
         for row in signals
     ]
@@ -316,8 +224,9 @@ def main() -> None:
     nutrition_summaries, nutrition_contrasts = nutrition_results()
     write_csv(OUTPUTS / "nutrition_density_summary.csv", nutrition_summaries)
     write_csv(OUTPUTS / "nutrition_group_contrasts.csv", nutrition_contrasts)
-    write_rate_svg(rates)
-    write_km_svg(retention)
+    plot_rates(ASSETS / "age-standardized-rates.svg", rates)
+    plot_retention(ASSETS / "retention-curves.svg", retention, RETENTION_RECORDS)
+    plot_nutrition(ASSETS / "nutrition-contrasts.svg", nutrition_contrasts)
 
     highest = max(rates, key=lambda row: float(row["standardized_rate"]))
     flagged_weeks = [row["week"] for row in signals if row["signal"]]

@@ -17,6 +17,10 @@ The energy-density approach makes nutrient comparisons less dependent on total r
 
 ## Reproducible outputs
 
+![Fiber and sodium descriptive differences with separate units and 95% intervals](../assets/nutrition-contrasts.svg)
+
+Filled points show nutrition-education minus comparison means. Each panel has its own units and scale; the reference line is zero. The intervals are illustrative normal approximations for ten synthetic participants per group.
+
 - [Group summaries](../outputs/nutrition_density_summary.csv)
 - [Group contrasts](../outputs/nutrition_group_contrasts.csv)
 - [Generated findings](../outputs/summary.md)

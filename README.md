@@ -28,6 +28,8 @@ The complete deterministic findings are in [the generated summary](outputs/summa
 
 ### Nutrition epidemiology case study
 
+![Synthetic fiber and sodium differences with descriptive 95% intervals](assets/nutrition-contrasts.svg)
+
 The nutrition analysis averages two synthetic 24-hour recalls per participant, expresses fiber and sodium per 1,000 kilocalories, reports dietary-data completeness, and estimates descriptive group differences with uncertainty. It demonstrates dietary measurement and energy adjustment without presenting synthetic values as clinical findings or program effects.
 
 See the [nutrition case study](docs/nutrition-case-study.md), [group summaries](outputs/nutrition_density_summary.csv), and [group contrasts](outputs/nutrition_group_contrasts.csv).
