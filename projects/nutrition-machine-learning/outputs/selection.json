@@ -1,0 +1,105 @@
+{
+  "champions": {
+    "base": "base:elastic",
+    "diet": "diet:elastic"
+  },
+  "development_cycle": "2015-2016",
+  "development_n": 3999,
+  "development_psus": 30,
+  "plan_sha256": "3bb465c46f9555d80e80cf584a492dfe1a9914ec31fd40de62c07eda36b773eb",
+  "selected": [
+    {
+      "candidate": {
+        "family": "boost",
+        "id": "boost-7",
+        "params": {
+          "l2_regularization": 10.0,
+          "learning_rate": 0.05,
+          "max_iter": 150,
+          "max_leaf_nodes": 7,
+          "min_samples_leaf": 30
+        }
+      },
+      "cv_rmse": 0.9298976049587081,
+      "key": "base:boost"
+    },
+    {
+      "candidate": {
+        "family": "elastic",
+        "id": "elastic-001",
+        "params": {
+          "alpha": 0.01,
+          "l1_ratio": 0.5
+        }
+      },
+      "cv_rmse": 0.9150129551533597,
+      "key": "base:elastic"
+    },
+    {
+      "candidate": {
+        "family": "forest",
+        "id": "forest-30",
+        "params": {
+          "max_depth": 8,
+          "max_features": 0.8,
+          "min_samples_leaf": 30,
+          "n_estimators": 160
+        }
+      },
+      "cv_rmse": 0.9192675454249378,
+      "key": "base:forest"
+    },
+    {
+      "candidate": {
+        "family": "mean",
+        "id": "mean",
+        "params": {}
+      },
+      "cv_rmse": 0.9785865908293839,
+      "key": "base:mean"
+    },
+    {
+      "candidate": {
+        "family": "boost",
+        "id": "boost-7",
+        "params": {
+          "l2_regularization": 10.0,
+          "learning_rate": 0.05,
+          "max_iter": 150,
+          "max_leaf_nodes": 7,
+          "min_samples_leaf": 30
+        }
+      },
+      "cv_rmse": 0.9272838448341965,
+      "key": "diet:boost"
+    },
+    {
+      "candidate": {
+        "family": "elastic",
+        "id": "elastic-001",
+        "params": {
+          "alpha": 0.01,
+          "l1_ratio": 0.5
+        }
+      },
+      "cv_rmse": 0.915757086580841,
+      "key": "diet:elastic"
+    },
+    {
+      "candidate": {
+        "family": "forest",
+        "id": "forest-30",
+        "params": {
+          "max_depth": 8,
+          "max_features": 0.8,
+          "min_samples_leaf": 30,
+          "n_estimators": 160
+        }
+      },
+      "cv_rmse": 0.9200078911773747,
+      "key": "diet:forest"
+    }
+  ],
+  "selection_uses_test_outcomes": false,
+  "test_cycle": "2017-2018"
+}

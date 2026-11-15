@@ -1,0 +1,965 @@
+{
+  "binned-diagnostics": [
+    {
+      "n": 395,
+      "observed": 5.16062168,
+      "predicted": 5.11805831,
+      "residual": 0.04256337
+    },
+    {
+      "n": 395,
+      "observed": 5.30616452,
+      "predicted": 5.35524731,
+      "residual": -0.04908279
+    },
+    {
+      "n": 394,
+      "observed": 5.42908375,
+      "predicted": 5.49225904,
+      "residual": -0.06317529
+    },
+    {
+      "n": 395,
+      "observed": 5.62032826,
+      "predicted": 5.61057022,
+      "residual": 0.00975804
+    },
+    {
+      "n": 395,
+      "observed": 5.6990626,
+      "predicted": 5.71665939,
+      "residual": -0.01759679
+    },
+    {
+      "n": 394,
+      "observed": 5.84239496,
+      "predicted": 5.81817006,
+      "residual": 0.02422489
+    },
+    {
+      "n": 395,
+      "observed": 6.00408157,
+      "predicted": 5.90593548,
+      "residual": 0.09814609
+    },
+    {
+      "n": 394,
+      "observed": 6.15695222,
+      "predicted": 6.01015373,
+      "residual": 0.14679849
+    },
+    {
+      "n": 395,
+      "observed": 6.10350905,
+      "predicted": 6.12044706,
+      "residual": -0.01693801
+    },
+    {
+      "n": 395,
+      "observed": 6.4371826,
+      "predicted": 6.32904809,
+      "residual": 0.10813452
+    }
+  ],
+  "cohort-flow": [
+    {
+      "cycle": "2015-2016",
+      "excluded": 0,
+      "remaining": 9971,
+      "step": "Source demographics"
+    },
+    {
+      "cycle": "2015-2016",
+      "excluded": 4252,
+      "remaining": 5719,
+      "step": "Age 20 or older"
+    },
+    {
+      "cycle": "2015-2016",
+      "excluded": 70,
+      "remaining": 5649,
+      "step": "Not known pregnant (unknown retained)"
+    },
+    {
+      "cycle": "2015-2016",
+      "excluded": 1496,
+      "remaining": 4153,
+      "step": "Two reliable recalls and positive WTDR2D"
+    },
+    {
+      "cycle": "2015-2016",
+      "excluded": 154,
+      "remaining": 3999,
+      "step": "Measured HbA1c available (never imputed)"
+    },
+    {
+      "cycle": "2015-2016",
+      "excluded": 0,
+      "remaining": 3999,
+      "step": "Survey design fields available"
+    },
+    {
+      "cycle": "2015-2016",
+      "excluded": 0,
+      "remaining": 3999,
+      "step": "Positive two-day energy"
+    },
+    {
+      "cycle": "2017-2018",
+      "excluded": 0,
+      "remaining": 9254,
+      "step": "Source demographics"
+    },
+    {
+      "cycle": "2017-2018",
+      "excluded": 3685,
+      "remaining": 5569,
+      "step": "Age 20 or older"
+    },
+    {
+      "cycle": "2017-2018",
+      "excluded": 55,
+      "remaining": 5514,
+      "step": "Not known pregnant (unknown retained)"
+    },
+    {
+      "cycle": "2017-2018",
+      "excluded": 1419,
+      "remaining": 4095,
+      "step": "Two reliable recalls and positive WTDR2D"
+    },
+    {
+      "cycle": "2017-2018",
+      "excluded": 148,
+      "remaining": 3947,
+      "step": "Measured HbA1c available (never imputed)"
+    },
+    {
+      "cycle": "2017-2018",
+      "excluded": 0,
+      "remaining": 3947,
+      "step": "Survey design fields available"
+    },
+    {
+      "cycle": "2017-2018",
+      "excluded": 0,
+      "remaining": 3947,
+      "step": "Positive two-day energy"
+    }
+  ],
+  "cv-folds": [
+    {
+      "fold": 1,
+      "overlapping_psus": 0,
+      "train_n": 3040,
+      "train_psus": 23,
+      "validation_n": 959,
+      "validation_psus": 7
+    },
+    {
+      "fold": 2,
+      "overlapping_psus": 0,
+      "train_n": 3042,
+      "train_psus": 23,
+      "validation_n": 957,
+      "validation_psus": 7
+    },
+    {
+      "fold": 3,
+      "overlapping_psus": 0,
+      "train_n": 2953,
+      "train_psus": 22,
+      "validation_n": 1046,
+      "validation_psus": 8
+    },
+    {
+      "fold": 4,
+      "overlapping_psus": 0,
+      "train_n": 2962,
+      "train_psus": 22,
+      "validation_n": 1037,
+      "validation_psus": 8
+    }
+  ],
+  "cv-results": [
+    {
+      "bias": 0.00202668,
+      "candidate": "mean",
+      "family": "mean",
+      "feature_set": "base",
+      "mae": 0.54691718,
+      "order": 0,
+      "r2": -0.00531948,
+      "rmse": 0.97858659
+    },
+    {
+      "bias": 0.00379917,
+      "candidate": "elastic-001",
+      "family": "elastic",
+      "feature_set": "base",
+      "mae": 0.48760986,
+      "order": 1,
+      "r2": 0.12105831,
+      "rmse": 0.91501296
+    },
+    {
+      "bias": 0.00286069,
+      "candidate": "elastic-01",
+      "family": "elastic",
+      "feature_set": "base",
+      "mae": 0.48457682,
+      "order": 2,
+      "r2": 0.10990882,
+      "rmse": 0.9207982
+    },
+    {
+      "bias": 0.01931437,
+      "candidate": "forest-10",
+      "family": "forest",
+      "feature_set": "base",
+      "mae": 0.50671876,
+      "order": 3,
+      "r2": 0.09645451,
+      "rmse": 0.92773133
+    },
+    {
+      "bias": 0.00915708,
+      "candidate": "forest-30",
+      "family": "forest",
+      "feature_set": "base",
+      "mae": 0.49710119,
+      "order": 4,
+      "r2": 0.11286557,
+      "rmse": 0.91926755
+    },
+    {
+      "bias": 0.00590773,
+      "candidate": "boost-7",
+      "family": "boost",
+      "feature_set": "base",
+      "mae": 0.50718277,
+      "order": 5,
+      "r2": 0.09222998,
+      "rmse": 0.9298976
+    },
+    {
+      "bias": 0.01166939,
+      "candidate": "boost-15",
+      "family": "boost",
+      "feature_set": "base",
+      "mae": 0.52280149,
+      "order": 6,
+      "r2": 0.06504312,
+      "rmse": 0.94371966
+    },
+    {
+      "bias": 0.00422143,
+      "candidate": "elastic-001",
+      "family": "elastic",
+      "feature_set": "diet",
+      "mae": 0.49060385,
+      "order": 1,
+      "r2": 0.11962814,
+      "rmse": 0.91575709
+    },
+    {
+      "bias": 0.00272961,
+      "candidate": "elastic-01",
+      "family": "elastic",
+      "feature_set": "diet",
+      "mae": 0.48474168,
+      "order": 2,
+      "r2": 0.10992154,
+      "rmse": 0.92079162
+    },
+    {
+      "bias": 0.03278055,
+      "candidate": "forest-10",
+      "family": "forest",
+      "feature_set": "diet",
+      "mae": 0.50999609,
+      "order": 3,
+      "r2": 0.09742635,
+      "rmse": 0.92723227
+    },
+    {
+      "bias": 0.01697901,
+      "candidate": "forest-30",
+      "family": "forest",
+      "feature_set": "diet",
+      "mae": 0.49975218,
+      "order": 4,
+      "r2": 0.11143606,
+      "rmse": 0.92000789
+    },
+    {
+      "bias": 0.01438635,
+      "candidate": "boost-7",
+      "family": "boost",
+      "feature_set": "diet",
+      "mae": 0.50949312,
+      "order": 5,
+      "r2": 0.09732593,
+      "rmse": 0.92728384
+    },
+    {
+      "bias": 0.03474406,
+      "candidate": "boost-15",
+      "family": "boost",
+      "feature_set": "diet",
+      "mae": 0.52660041,
+      "order": 6,
+      "r2": 0.08106749,
+      "rmse": 0.93559743
+    }
+  ],
+  "dietary-comparisons": [
+    {
+      "base_model": "base:elastic",
+      "comparison": "Selected pipelines",
+      "diet_model": "diet:elastic",
+      "lower": -0.00164737,
+      "rmse_difference": -0.00043443,
+      "upper": 0.0007808
+    },
+    {
+      "base_model": "base:elastic",
+      "comparison": "elastic",
+      "diet_model": "diet:elastic",
+      "lower": -0.00164737,
+      "rmse_difference": -0.00043443,
+      "upper": 0.0007808
+    },
+    {
+      "base_model": "base:forest",
+      "comparison": "forest",
+      "diet_model": "diet:forest",
+      "lower": -0.00987778,
+      "rmse_difference": -0.00435219,
+      "upper": 0.00085776
+    },
+    {
+      "base_model": "base:boost",
+      "comparison": "boost",
+      "diet_model": "diet:boost",
+      "lower": -0.01569606,
+      "rmse_difference": -0.00947159,
+      "upper": -0.00395114
+    }
+  ],
+  "missingness": [
+    {
+      "cycle": "2015-2016",
+      "denominator_n": 4153,
+      "missing_n": 154,
+      "variable": "LBXGH"
+    },
+    {
+      "cycle": "2015-2016",
+      "denominator_n": 4153,
+      "missing_n": 43,
+      "variable": "BMXBMI"
+    },
+    {
+      "cycle": "2015-2016",
+      "denominator_n": 4153,
+      "missing_n": 165,
+      "variable": "BMXWAIST"
+    },
+    {
+      "cycle": "2015-2016",
+      "denominator_n": 4153,
+      "missing_n": 383,
+      "variable": "INDFMPIR"
+    },
+    {
+      "cycle": "2015-2016",
+      "denominator_n": 4153,
+      "missing_n": 0,
+      "variable": "DIQ010"
+    },
+    {
+      "cycle": "2017-2018",
+      "denominator_n": 4095,
+      "missing_n": 148,
+      "variable": "LBXGH"
+    },
+    {
+      "cycle": "2017-2018",
+      "denominator_n": 4095,
+      "missing_n": 37,
+      "variable": "BMXBMI"
+    },
+    {
+      "cycle": "2017-2018",
+      "denominator_n": 4095,
+      "missing_n": 130,
+      "variable": "BMXWAIST"
+    },
+    {
+      "cycle": "2017-2018",
+      "denominator_n": 4095,
+      "missing_n": 451,
+      "variable": "INDFMPIR"
+    },
+    {
+      "cycle": "2017-2018",
+      "denominator_n": 4095,
+      "missing_n": 0,
+      "variable": "DIQ010"
+    }
+  ],
+  "model-effects": [
+    {
+      "effect": -0.12406295,
+      "n": 357,
+      "value": 21.65,
+      "variable": "bmi"
+    },
+    {
+      "effect": -0.09144873,
+      "n": 351,
+      "value": 23.65,
+      "variable": "bmi"
+    },
+    {
+      "effect": -0.06535735,
+      "n": 360,
+      "value": 25.25,
+      "variable": "bmi"
+    },
+    {
+      "effect": -0.04252739,
+      "n": 343,
+      "value": 26.65,
+      "variable": "bmi"
+    },
+    {
+      "effect": -0.02051279,
+      "n": 350,
+      "value": 28.0,
+      "variable": "bmi"
+    },
+    {
+      "effect": 0.00264331,
+      "n": 380,
+      "value": 29.42,
+      "variable": "bmi"
+    },
+    {
+      "effect": 0.02873469,
+      "n": 347,
+      "value": 31.02,
+      "variable": "bmi"
+    },
+    {
+      "effect": 0.06020741,
+      "n": 352,
+      "value": 32.95,
+      "variable": "bmi"
+    },
+    {
+      "effect": 0.1026059,
+      "n": 362,
+      "value": 35.55,
+      "variable": "bmi"
+    },
+    {
+      "effect": 0.17924933,
+      "n": 366,
+      "value": 40.25,
+      "variable": "bmi"
+    },
+    {
+      "effect": -0.0177407,
+      "n": 360,
+      "value": 4.39453361,
+      "variable": "fiber_density"
+    },
+    {
+      "effect": -0.01307765,
+      "n": 360,
+      "value": 5.47745909,
+      "variable": "fiber_density"
+    },
+    {
+      "effect": -0.0097661,
+      "n": 360,
+      "value": 6.24651762,
+      "variable": "fiber_density"
+    },
+    {
+      "effect": -0.00671793,
+      "n": 360,
+      "value": 6.95440883,
+      "variable": "fiber_density"
+    },
+    {
+      "effect": -0.00342382,
+      "n": 359,
+      "value": 7.71941736,
+      "variable": "fiber_density"
+    },
+    {
+      "effect": -6.78e-05,
+      "n": 360,
+      "value": 8.49880495,
+      "variable": "fiber_density"
+    },
+    {
+      "effect": 0.00378526,
+      "n": 360,
+      "value": 9.39362047,
+      "variable": "fiber_density"
+    },
+    {
+      "effect": 0.00877283,
+      "n": 360,
+      "value": 10.55191067,
+      "variable": "fiber_density"
+    },
+    {
+      "effect": 0.01521841,
+      "n": 360,
+      "value": 12.04880204,
+      "variable": "fiber_density"
+    },
+    {
+      "effect": 0.0257439,
+      "n": 360,
+      "value": 14.49319217,
+      "variable": "fiber_density"
+    },
+    {
+      "effect": 0.01400251,
+      "n": 361,
+      "value": 1081.5,
+      "variable": "energy_kcal"
+    },
+    {
+      "effect": 0.01037257,
+      "n": 361,
+      "value": 1321.52,
+      "variable": "energy_kcal"
+    },
+    {
+      "effect": 0.00764278,
+      "n": 359,
+      "value": 1502.02,
+      "variable": "energy_kcal"
+    },
+    {
+      "effect": 0.00515149,
+      "n": 360,
+      "value": 1666.75,
+      "variable": "energy_kcal"
+    },
+    {
+      "effect": 0.00278844,
+      "n": 360,
+      "value": 1823.0,
+      "variable": "energy_kcal"
+    },
+    {
+      "effect": 0.00042986,
+      "n": 360,
+      "value": 1978.955,
+      "variable": "energy_kcal"
+    },
+    {
+      "effect": -0.00204283,
+      "n": 359,
+      "value": 2142.455,
+      "variable": "energy_kcal"
+    },
+    {
+      "effect": -0.00511736,
+      "n": 360,
+      "value": 2345.75,
+      "variable": "energy_kcal"
+    },
+    {
+      "effect": -0.00948154,
+      "n": 361,
+      "value": 2634.32,
+      "variable": "energy_kcal"
+    },
+    {
+      "effect": -0.016565,
+      "n": 360,
+      "value": 3102.695,
+      "variable": "energy_kcal"
+    }
+  ],
+  "selection": {
+    "champions": {
+      "base": "base:elastic",
+      "diet": "diet:elastic"
+    },
+    "development_cycle": "2015-2016",
+    "development_n": 3999,
+    "development_psus": 30,
+    "plan_sha256": "3bb465c46f9555d80e80cf584a492dfe1a9914ec31fd40de62c07eda36b773eb",
+    "selected": [
+      {
+        "candidate": {
+          "family": "boost",
+          "id": "boost-7",
+          "params": {
+            "l2_regularization": 10.0,
+            "learning_rate": 0.05,
+            "max_iter": 150,
+            "max_leaf_nodes": 7,
+            "min_samples_leaf": 30
+          }
+        },
+        "cv_rmse": 0.9298976049587081,
+        "key": "base:boost"
+      },
+      {
+        "candidate": {
+          "family": "elastic",
+          "id": "elastic-001",
+          "params": {
+            "alpha": 0.01,
+            "l1_ratio": 0.5
+          }
+        },
+        "cv_rmse": 0.9150129551533597,
+        "key": "base:elastic"
+      },
+      {
+        "candidate": {
+          "family": "forest",
+          "id": "forest-30",
+          "params": {
+            "max_depth": 8,
+            "max_features": 0.8,
+            "min_samples_leaf": 30,
+            "n_estimators": 160
+          }
+        },
+        "cv_rmse": 0.9192675454249378,
+        "key": "base:forest"
+      },
+      {
+        "candidate": {
+          "family": "mean",
+          "id": "mean",
+          "params": {}
+        },
+        "cv_rmse": 0.9785865908293839,
+        "key": "base:mean"
+      },
+      {
+        "candidate": {
+          "family": "boost",
+          "id": "boost-7",
+          "params": {
+            "l2_regularization": 10.0,
+            "learning_rate": 0.05,
+            "max_iter": 150,
+            "max_leaf_nodes": 7,
+            "min_samples_leaf": 30
+          }
+        },
+        "cv_rmse": 0.9272838448341965,
+        "key": "diet:boost"
+      },
+      {
+        "candidate": {
+          "family": "elastic",
+          "id": "elastic-001",
+          "params": {
+            "alpha": 0.01,
+            "l1_ratio": 0.5
+          }
+        },
+        "cv_rmse": 0.915757086580841,
+        "key": "diet:elastic"
+      },
+      {
+        "candidate": {
+          "family": "forest",
+          "id": "forest-30",
+          "params": {
+            "max_depth": 8,
+            "max_features": 0.8,
+            "min_samples_leaf": 30,
+            "n_estimators": 160
+          }
+        },
+        "cv_rmse": 0.9200078911773747,
+        "key": "diet:forest"
+      }
+    ],
+    "selection_uses_test_outcomes": false,
+    "test_cycle": "2017-2018"
+  },
+  "sensitivity": [
+    {
+      "bias": 0.15982991,
+      "feature_set": "base",
+      "mae": 0.3620347,
+      "model": "base:elastic",
+      "n": 3187,
+      "r2": -0.00543551,
+      "rmse": 0.56375951,
+      "subset": "Reports no diabetes diagnosis (DIQ010=2)"
+    },
+    {
+      "bias": 0.15816957,
+      "feature_set": "diet",
+      "mae": 0.36401769,
+      "model": "diet:elastic",
+      "n": 3187,
+      "r2": -0.01254281,
+      "rmse": 0.56574858,
+      "subset": "Reports no diabetes diagnosis (DIQ010=2)"
+    },
+    {
+      "bias": -0.01057781,
+      "feature_set": "base",
+      "mae": 0.48636912,
+      "model": "base:elastic",
+      "n": 3415,
+      "r2": 0.15601641,
+      "rmse": 0.86171505,
+      "subset": "Complete base predictors"
+    },
+    {
+      "bias": -0.01142409,
+      "feature_set": "diet",
+      "mae": 0.48752341,
+      "model": "diet:elastic",
+      "n": 3415,
+      "r2": 0.15704061,
+      "rmse": 0.86119204,
+      "subset": "Complete base predictors"
+    }
+  ],
+  "subgroup-audit": [
+    {
+      "bias": 0.06355197,
+      "dimension": "age_group",
+      "group": "20-39",
+      "mae": 0.33980696,
+      "model": "diet:elastic",
+      "n": 1138,
+      "r2": 0.0655999,
+      "rmse": 0.57302015,
+      "rmse_lower": 0.4712397,
+      "rmse_upper": 0.64790975,
+      "status": "reported"
+    },
+    {
+      "bias": -0.09105048,
+      "dimension": "age_group",
+      "group": "40-59",
+      "mae": 0.55462208,
+      "model": "diet:elastic",
+      "n": 1274,
+      "r2": 0.0755998,
+      "rmse": 1.02284012,
+      "rmse_lower": 0.8329342,
+      "rmse_upper": 1.16577322,
+      "status": "reported"
+    },
+    {
+      "bias": -0.03841995,
+      "dimension": "age_group",
+      "group": "60+",
+      "mae": 0.59384448,
+      "model": "diet:elastic",
+      "n": 1535,
+      "r2": 0.06060181,
+      "rmse": 0.94440762,
+      "rmse_lower": 0.8423236,
+      "rmse_upper": 1.04496237,
+      "status": "reported"
+    },
+    {
+      "bias": -0.04572073,
+      "dimension": "sex_group",
+      "group": "Female",
+      "mae": 0.44907004,
+      "model": "diet:elastic",
+      "n": 2049,
+      "r2": 0.16867624,
+      "rmse": 0.83050737,
+      "rmse_lower": 0.66743374,
+      "rmse_upper": 0.95529267,
+      "status": "reported"
+    },
+    {
+      "bias": 0.0065034,
+      "dimension": "sex_group",
+      "group": "Male",
+      "mae": 0.53473205,
+      "model": "diet:elastic",
+      "n": 1898,
+      "r2": 0.14950069,
+      "rmse": 0.89833773,
+      "rmse_lower": 0.81958635,
+      "rmse_upper": 0.97451633,
+      "status": "reported"
+    },
+    {
+      "bias": -0.11696008,
+      "dimension": "race_group",
+      "group": "Mexican American",
+      "mae": 0.54931166,
+      "model": "diet:elastic",
+      "n": 501,
+      "r2": 0.09982142,
+      "rmse": 1.06971271,
+      "rmse_lower": 0.85584338,
+      "rmse_upper": 1.20992758,
+      "status": "reported"
+    },
+    {
+      "bias": -0.27406084,
+      "dimension": "race_group",
+      "group": "Non-Hispanic Asian",
+      "mae": 0.48520251,
+      "model": "diet:elastic",
+      "n": 472,
+      "r2": 0.05007838,
+      "rmse": 0.90509138,
+      "rmse_lower": 0.76018659,
+      "rmse_upper": 1.07793857,
+      "status": "reported"
+    },
+    {
+      "bias": -0.16821757,
+      "dimension": "race_group",
+      "group": "Non-Hispanic Black",
+      "mae": 0.5666134,
+      "model": "diet:elastic",
+      "n": 961,
+      "r2": 0.1198356,
+      "rmse": 1.01834047,
+      "rmse_lower": 0.91042678,
+      "rmse_upper": 1.11704533,
+      "status": "reported"
+    },
+    {
+      "bias": 0.04635623,
+      "dimension": "race_group",
+      "group": "Non-Hispanic White",
+      "mae": 0.46769448,
+      "model": "diet:elastic",
+      "n": 1448,
+      "r2": 0.18700492,
+      "rmse": 0.79348702,
+      "rmse_lower": 0.64620234,
+      "rmse_upper": 0.91429059,
+      "status": "reported"
+    },
+    {
+      "bias": 0.01677956,
+      "dimension": "race_group",
+      "group": "Other / multiracial",
+      "mae": 0.48780277,
+      "model": "diet:elastic",
+      "n": 202,
+      "r2": 0.1815067,
+      "rmse": 0.70280902,
+      "rmse_lower": 0.57125681,
+      "rmse_upper": 0.78863981,
+      "status": "reported"
+    },
+    {
+      "bias": -0.08300859,
+      "dimension": "race_group",
+      "group": "Other Hispanic",
+      "mae": 0.50079528,
+      "model": "diet:elastic",
+      "n": 363,
+      "r2": 0.15156215,
+      "rmse": 0.96289878,
+      "rmse_lower": 0.68038707,
+      "rmse_upper": 1.17929688,
+      "status": "reported"
+    }
+  ],
+  "test-metrics": [
+    {
+      "bias": -0.00948559,
+      "mae": 0.50713141,
+      "model": "base:boost",
+      "n": 3947,
+      "r2": 0.12847497,
+      "rmse": 0.87941165,
+      "rmse_lower": 0.81213679,
+      "rmse_upper": 0.94014158,
+      "unweighted_rmse": 1.03465599
+    },
+    {
+      "bias": -0.01963532,
+      "mae": 0.48884665,
+      "model": "base:elastic",
+      "n": 3947,
+      "r2": 0.15839516,
+      "rmse": 0.86418435,
+      "rmse_lower": 0.7917717,
+      "rmse_upper": 0.9274255,
+      "unweighted_rmse": 1.02752059
+    },
+    {
+      "bias": -0.00997808,
+      "mae": 0.49447057,
+      "model": "base:forest",
+      "n": 3947,
+      "r2": 0.15809208,
+      "rmse": 0.86433994,
+      "rmse_lower": 0.79683713,
+      "rmse_upper": 0.92571508,
+      "unweighted_rmse": 1.02703375
+    },
+    {
+      "bias": -0.02213581,
+      "mae": 0.55420043,
+      "model": "base:mean",
+      "n": 3947,
+      "r2": -0.00055219,
+      "rmse": 0.94226304,
+      "rmse_lower": 0.87081717,
+      "rmse_upper": 1.00497646,
+      "unweighted_rmse": 1.10911259
+    },
+    {
+      "bias": -0.01223788,
+      "mae": 0.49956811,
+      "model": "diet:boost",
+      "n": 3947,
+      "r2": 0.14714718,
+      "rmse": 0.86994006,
+      "rmse_lower": 0.80011375,
+      "rmse_upper": 0.93360933,
+      "unweighted_rmse": 1.02707351
+    },
+    {
+      "bias": -0.02063858,
+      "mae": 0.49021169,
+      "model": "diet:elastic",
+      "n": 3947,
+      "r2": 0.1592411,
+      "rmse": 0.86374992,
+      "rmse_lower": 0.79158008,
+      "rmse_upper": 0.92697143,
+      "unweighted_rmse": 1.02711981
+    },
+    {
+      "bias": -0.0065157,
+      "mae": 0.49232154,
+      "model": "diet:forest",
+      "n": 3947,
+      "r2": 0.16654921,
+      "rmse": 0.85998775,
+      "rmse_lower": 0.79028221,
+      "rmse_upper": 0.9224895,
+      "unweighted_rmse": 1.02265658
+    }
+  ]
+}

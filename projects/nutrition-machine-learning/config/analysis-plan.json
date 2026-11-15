@@ -1,0 +1,28 @@
+{
+  "question": "Do two-day dietary measures add predictive value for measured HbA1c beyond demographic and body-measurement variables?",
+  "development_cycle": "2015-2016",
+  "test_cycle": "2017-2018",
+  "minimum_age": 20,
+  "exclude_known_pregnancy": true,
+  "require_two_reliable_recalls": true,
+  "weight": "WTDR2D",
+  "cv_folds": 4,
+  "cv_group": "SDMVSTRA + SDMVPSU",
+  "selection_metric": "survey-weighted out-of-fold RMSE",
+  "tie_break": "candidate order",
+  "seed": 4217,
+  "bootstrap_replicates": 1000,
+  "minimum_published_group_n": 30,
+  "features_base": ["age", "female", "income_ratio", "bmi", "waist_cm"],
+  "features_diet": ["energy_kcal", "fiber_density", "sugar_density", "saturated_fat_density", "protein_density", "sodium_density"],
+  "excluded_from_predictors": ["SEQN", "LBXGH", "WTDR2D", "SDMVSTRA", "SDMVPSU", "RIDRETH3", "DIQ010", "other laboratory tests", "diabetes medication", "diabetes-specific diet"],
+  "candidates": [
+    {"id": "mean", "family": "mean", "params": {}},
+    {"id": "elastic-001", "family": "elastic", "params": {"alpha": 0.01, "l1_ratio": 0.5}},
+    {"id": "elastic-01", "family": "elastic", "params": {"alpha": 0.1, "l1_ratio": 0.5}},
+    {"id": "forest-10", "family": "forest", "params": {"n_estimators": 160, "max_depth": 8, "min_samples_leaf": 10, "max_features": 0.8}},
+    {"id": "forest-30", "family": "forest", "params": {"n_estimators": 160, "max_depth": 8, "min_samples_leaf": 30, "max_features": 0.8}},
+    {"id": "boost-7", "family": "boost", "params": {"max_iter": 150, "max_leaf_nodes": 7, "min_samples_leaf": 30, "learning_rate": 0.05, "l2_regularization": 10.0}},
+    {"id": "boost-15", "family": "boost", "params": {"max_iter": 150, "max_leaf_nodes": 15, "min_samples_leaf": 30, "learning_rate": 0.05, "l2_regularization": 10.0}}
+  ]
+}

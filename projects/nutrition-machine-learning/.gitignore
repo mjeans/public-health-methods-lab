@@ -1,0 +1,9 @@
+data/raw/
+data/derived/
+artifacts/
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+*.log
+assets/*.png

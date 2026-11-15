@@ -2,11 +2,25 @@
 
 [![Validate public health methods lab](https://github.com/mjeans/public-health-methods-lab/actions/workflows/validate.yml/badge.svg)](https://github.com/mjeans/public-health-methods-lab/actions/workflows/validate.yml)
 
-A compact, reproducible portfolio of nutrition, epidemiology, and biostatistics methods applied to deterministic synthetic data. The lab combines a dietary-recall case study with hypothetical respiratory-disease surveillance, outbreak, and community-care examples.
+A reproducible portfolio of nutrition, epidemiology, biostatistics, and machine-learning methods. The core lab uses deterministic synthetic examples; the self-contained nutrition ML project uses documented CDC/NCHS NHANES public-use data.
 
-> No patient, participant, or protected health information is included. Every value is synthetic and exists only to demonstrate analytic practice.
+> No row-level records or protected health information are republished. Core examples are synthetic; the nutrition ML extension downloads official public-use inputs locally and publishes aggregate results only.
 
-## Questions demonstrated
+## Featured: nutrition and machine learning
+
+**Do dietary summaries improve prediction of measured HbA1c in a separate NHANES survey cycle?**
+
+[Open the complete project](projects/nutrition-machine-learning) · [Executed results](projects/nutrition-machine-learning/outputs/report.md) · [Methods](projects/nutrition-machine-learning/docs/methods.md) · [Model card](projects/nutrition-machine-learning/docs/model-card.md)
+
+The benchmark compares elastic net, random forest, and gradient boosting against a weighted-mean baseline, using training-only preprocessing, PSU-grouped cross-validation, later-cycle evaluation, paired uncertainty intervals, and subgroup diagnostics. It combines nutritional sciences with rigorous predictive evaluation—not clinical deployment or causal dietary claims.
+
+**Main finding:** adding the selected dietary summaries did not clearly improve the development-selected pipeline on the later cycle. Inspect the uncertainty and limitations alongside the scores.
+
+![Nutrition ML model comparisons with uncertainty](projects/nutrition-machine-learning/assets/model-comparison.svg)
+
+The extension has its own pinned dependencies, tests, fixed analysis plan, reproduction checks, and [validation workflow](https://github.com/mjeans/public-health-methods-lab/actions/workflows/nutrition-ml.yml). The core lab below remains dependency-free.
+
+## Core synthetic examples
 
 1. How do district case rates compare after direct age standardization?
 2. Does a weekly count cross a transparent rolling surveillance threshold?
@@ -57,22 +71,24 @@ The formulas, estimands, and interpretation limits are documented in [Methods an
   assets/         Reproducibly generated SVG figures
   docs/           Methods, assumptions, and interpretation boundaries
   data/           Data-governance note; no row-level health data
+  projects/
+    nutrition-machine-learning/   Self-contained real-data ML benchmark
 ```
 
-## Run the lab
+## Run the core lab
 
-Python 3.11 or later is the only requirement.
+Python 3.11 or later is the only requirement for the core synthetic examples. The [nutrition ML project](projects/nutrition-machine-learning#reproduce) has separate Python 3.12 dependencies and commands.
 
 ```bash
 python tests/test_methods.py
 python scripts/run_analysis.py
 ```
 
-The GitHub Actions workflow runs the tests, rebuilds every output, and fails if the committed reference results drift.
+The core GitHub Actions workflow runs its tests, rebuilds the core outputs, and fails if committed results drift. The separate nutrition ML workflow checks its unit tests and numerical reproduction.
 
 ## Responsible interpretation
 
-This lab demonstrates statistical implementation under known synthetic conditions. A real analysis would require a protocol, data provenance review, dietary-instrument and case-definition governance, missingness assessment, small-cell rules, privacy review, appropriate measurement and surveillance methods, design-aware inference, and subject-matter interpretation. Statistical associations and alert thresholds do not identify causes on their own.
+The core lab demonstrates statistical implementation under known synthetic conditions. The nutrition ML extension is a separate public-use-data portfolio benchmark; read its [model card](projects/nutrition-machine-learning/docs/model-card.md) for use restrictions and survey/measurement limitations. A real analysis would require a protocol, data provenance review, dietary-instrument and case-definition governance, missingness assessment, small-cell rules, privacy review, appropriate measurement and surveillance methods, design-aware inference, and subject-matter interpretation. Statistical associations and alert thresholds do not identify causes on their own.
 
 ## Citation
 
