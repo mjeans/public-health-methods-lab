@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use this code, cite this repository and the underlying CDC/NCHS NHANES data."
+title: "Nutrition and Machine Learning: Cross-cycle NHANES HbA1c Benchmark"
+type: software
+authors:
+  - family-names: Jeans
+    given-names: Matthew
+    orcid: "https://orcid.org/0000-0002-1140-3185"
+repository-code: "https://github.com/mjeans/public-health-methods-lab"
+url: "https://github.com/mjeans/public-health-methods-lab/tree/main/projects/nutrition-machine-learning"
+license: MIT

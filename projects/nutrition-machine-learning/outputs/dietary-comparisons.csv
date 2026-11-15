@@ -1,0 +1,5 @@
+comparison,base_model,diet_model,rmse_difference,lower,upper
+Selected pipelines,base:elastic,diet:elastic,-0.00043443,-0.00164737,0.00078080
+elastic,base:elastic,diet:elastic,-0.00043443,-0.00164737,0.00078080
+forest,base:forest,diet:forest,-0.00435219,-0.00987778,0.00085776
+boost,base:boost,diet:boost,-0.00947159,-0.01569606,-0.00395114

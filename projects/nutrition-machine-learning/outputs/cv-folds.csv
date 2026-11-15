@@ -1,0 +1,5 @@
+fold,train_n,validation_n,train_psus,validation_psus,overlapping_psus
+1,3040,959,23,7,0
+2,3042,957,23,7,0
+3,2953,1046,22,8,0
+4,2962,1037,22,8,0

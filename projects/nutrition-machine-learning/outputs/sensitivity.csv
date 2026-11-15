@@ -1,0 +1,5 @@
+subset,feature_set,model,n,rmse,mae,bias,r2
+Reports no diabetes diagnosis (DIQ010=2),base,base:elastic,3187,0.56375951,0.36203470,0.15982991,-0.00543551
+Reports no diabetes diagnosis (DIQ010=2),diet,diet:elastic,3187,0.56574858,0.36401769,0.15816957,-0.01254281
+Complete base predictors,base,base:elastic,3415,0.86171505,0.48636912,-0.01057781,0.15601641
+Complete base predictors,diet,diet:elastic,3415,0.86119204,0.48752341,-0.01142409,0.15704061
