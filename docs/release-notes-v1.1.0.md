@@ -1,6 +1,6 @@
-# Prepared release notes for v1.1.0
+# Release notes for v1.1.0
 
-Status: prepared for a future validated release; this file does not create a Git tag, release, archive, or DOI.
+Published: [GitHub v1.1.0 release](https://github.com/mjeans/public-health-methods-lab/releases/tag/v1.1.0) and [Zenodo archive, DOI 10.5281/zenodo.24267623](https://doi.org/10.5281/zenodo.24267623). Zenodo records the publication date as November 16, 2026 (UTC).
 
 ## Research portfolio expansion
 
@@ -8,11 +8,19 @@ Status: prepared for a future validated release; this file does not create a Git
 - Add a three-page PDF and self-contained HTML research brief generated from committed aggregate evidence.
 - Add the When Methods Fail simulation study: 23 scenarios, 2,000 repetitions each, measurement error, missingness, school clustering, paired comparisons, and Monte Carlo uncertainty.
 - Add a publication companion separating documented TX Sprouts contributions from new illustrative code.
-- Prepare MIT/ORCID-aligned software citation and Zenodo metadata.
+- Include MIT-licensed source and ORCID-linked software citation and Zenodo metadata.
 
-## Verification to record at publication
+## Validated source
 
-Record the final main commit SHA and links to successful core lab, nutrition ML, and research-artifact workflow runs. Do not reuse a passing result from a different commit. The nutrition ML results remain unchanged by the brief; simulation results are synthetic and are not trial findings.
+Commit: [`48003da919ed591c96e6603fbaf5ab9fd3033094`](https://github.com/mjeans/public-health-methods-lab/commit/48003da919ed591c96e6603fbaf5ab9fd3033094).
+
+Successful checks on this exact commit:
+
+- [Core public-health methods](https://github.com/mjeans/public-health-methods-lab/actions/runs/43778529235)
+- [Nutrition machine-learning benchmark](https://github.com/mjeans/public-health-methods-lab/actions/runs/43778529219)
+- [Simulation and research artifacts](https://github.com/mjeans/public-health-methods-lab/actions/runs/43778529210)
+
+The nutrition ML results remain unchanged by the brief; simulation results are synthetic and are not trial findings. The downloaded Zenodo archive was checked against all 88 committed files; see [archive verification](archiving.md). This publication-status update was added to main after archiving and does not alter the released snapshot.
 
 ## Interpretation
 
