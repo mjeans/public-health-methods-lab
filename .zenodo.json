@@ -1,0 +1,22 @@
+{
+  "title": "Public Health Methods Lab",
+  "upload_type": "software",
+  "description": "Reproducible nutrition, epidemiology, and biostatistics portfolio: synthetic methods examples, a survey-aware NHANES nutrition machine-learning benchmark, and controlled simulations of measurement error, missing outcomes, and clustered assignment. Includes tested code, aggregate evidence, research briefs, and explicit interpretation boundaries. No row-level participant records or fitted models are redistributed.",
+  "creators": [
+    {
+      "name": "Jeans, Matthew",
+      "orcid": "0000-0002-1140-3185"
+    }
+  ],
+  "license": "mit",
+  "access_right": "open",
+  "language": "eng",
+  "keywords": [
+    "nutritional epidemiology",
+    "public health",
+    "biostatistics",
+    "machine learning",
+    "Monte Carlo simulation",
+    "reproducible research"
+  ]
+}

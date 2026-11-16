@@ -1,0 +1,15 @@
+{
+  "inputs": {
+    "outputs/test-metrics.csv": "3be4df6414e0276526b3bbffa4f32a75e2b575a681bed0046e9ed5ec6e1a7cfb",
+    "outputs/dietary-comparisons.csv": "55d50490b7e029a892f4003f5ade31c1ccf5c3664adae5332c18b6a7c691255e",
+    "outputs/selection.json": "cf4f31e2bc5499d0848287b87567b25e98635d643ba7821298ff199afa90e331",
+    "config/analysis-plan.json": "075731be6425fc091b2303a3f614a2b292018dc4b7b2d61d256f09af1be022ab",
+    "outputs/cohort-flow.csv": "b67742563583b8bbd9e4e0d6354c46578bb2b75281b2cfbfa7f89716b917d1ba"
+  },
+  "outputs": [
+    "outputs/research-brief.html",
+    "output/pdf/nutrition-ml-research-brief.pdf"
+  ],
+  "models_refitted": false,
+  "source": "Committed aggregate evidence from the frozen cross-cycle benchmark"
+}
