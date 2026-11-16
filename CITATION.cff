@@ -1,7 +1,10 @@
 cff-version: 1.2.0
-message: "Cite this methods portfolio and acknowledge the original public data sources where used."
+message: "Cite the archived v1.1.0 software release and acknowledge the original public data sources where used."
 title: "Public Health Methods Lab"
 type: software
+version: "1.1.0"
+date-released: 2026-11-16
+doi: "10.5281/zenodo.24267623"
 license: MIT
 authors:
   - family-names: Jeans

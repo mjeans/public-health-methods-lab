@@ -1,6 +1,7 @@
 # Public Health Methods Lab
 
 [![Validate public health methods lab](https://github.com/mjeans/public-health-methods-lab/actions/workflows/validate.yml/badge.svg)](https://github.com/mjeans/public-health-methods-lab/actions/workflows/validate.yml)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24267622.svg)](https://doi.org/10.5281/zenodo.24267622)
 
 A reproducible portfolio of nutrition, epidemiology, biostatistics, and machine-learning methods. The core lab uses deterministic synthetic examples; the self-contained nutrition ML project uses documented CDC/NCHS NHANES public-use data.
 
@@ -94,9 +95,11 @@ The core lab demonstrates statistical implementation under known synthetic condi
 
 ## Citation
 
-Citation metadata are available in [`CITATION.cff`](CITATION.cff).
+Jeans, M. (2026). *Public Health Methods Lab* (v1.1.0) [Computer software]. Zenodo. [https://doi.org/10.5281/zenodo.24267623](https://doi.org/10.5281/zenodo.24267623)
 
-[Archiving checklist and Zenodo metadata](docs/archiving.md). Metadata preparation is not a published DOI.
+Use this version-specific DOI to cite the [validated v1.1.0 release](https://github.com/mjeans/public-health-methods-lab/releases/tag/v1.1.0). The badge links to the [all-versions DOI](https://doi.org/10.5281/zenodo.24267622); `main` is the evolving development branch. [`CITATION.cff`](CITATION.cff) describes the latest archived release. Acknowledge the original public data sources where used.
+
+[Archive verification and future-release checklist](docs/archiving.md).
 
 ## License
 
