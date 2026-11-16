@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "If you use this methods portfolio or its statistical implementation, please cite it as follows."
+message: "Cite this methods portfolio and acknowledge the original public data sources where used."
 title: "Public Health Methods Lab"
 type: software
 license: MIT
@@ -9,10 +9,11 @@ authors:
     orcid: "https://orcid.org/0000-0002-1140-3185"
 repository-code: "https://github.com/mjeans/public-health-methods-lab"
 url: "https://github.com/mjeans/public-health-methods-lab"
-abstract: "Reproducible nutrition epidemiology, surveillance, outbreak, and survival-analysis case studies with synthetic data, tests, and continuous integration."
+abstract: "Tested public-health methods, a public-use NHANES nutrition machine-learning benchmark, and controlled simulations of measurement error, missingness, and clustered assignment. Includes aggregate evidence and reproducible research briefs."
 keywords:
   - public health
   - nutritional epidemiology
-  - epidemiology
   - biostatistics
-  - surveillance
+  - machine learning
+  - Monte Carlo simulation
+  - reproducible research

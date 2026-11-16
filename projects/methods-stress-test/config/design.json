@@ -1,0 +1,190 @@
+{
+  "title": "When methods fail",
+  "seed": 20261115,
+  "replicates": 2000,
+  "confidence": 0.95,
+  "status": "Fixed computational design; not an externally registered protocol",
+  "scenarios": [
+    {
+      "id": 100,
+      "family": "measurement",
+      "n": 800,
+      "truth": 0,
+      "error_sd": 0,
+      "error_correlation": 0
+    },
+    {
+      "id": 101,
+      "family": "measurement",
+      "n": 800,
+      "truth": 0,
+      "error_sd": 0.75,
+      "error_correlation": 0
+    },
+    {
+      "id": 102,
+      "family": "measurement",
+      "n": 800,
+      "truth": 0,
+      "error_sd": 1.5,
+      "error_correlation": 0
+    },
+    {
+      "id": 103,
+      "family": "measurement",
+      "n": 800,
+      "truth": 0,
+      "error_sd": 1.5,
+      "error_correlation": 0.5
+    },
+    {
+      "id": 104,
+      "family": "measurement",
+      "n": 800,
+      "truth": 0.5,
+      "error_sd": 0,
+      "error_correlation": 0
+    },
+    {
+      "id": 105,
+      "family": "measurement",
+      "n": 800,
+      "truth": 0.5,
+      "error_sd": 0.75,
+      "error_correlation": 0
+    },
+    {
+      "id": 106,
+      "family": "measurement",
+      "n": 800,
+      "truth": 0.5,
+      "error_sd": 1.5,
+      "error_correlation": 0
+    },
+    {
+      "id": 107,
+      "family": "measurement",
+      "n": 800,
+      "truth": 0.5,
+      "error_sd": 1.5,
+      "error_correlation": 0.5
+    },
+    {
+      "id": 200,
+      "family": "missingness",
+      "n": 800,
+      "truth": 0,
+      "mechanism": "MCAR"
+    },
+    {
+      "id": 201,
+      "family": "missingness",
+      "n": 800,
+      "truth": 0,
+      "mechanism": "MAR"
+    },
+    {
+      "id": 202,
+      "family": "missingness",
+      "n": 800,
+      "truth": 0,
+      "mechanism": "MNAR"
+    },
+    {
+      "id": 300,
+      "family": "clustering",
+      "schools": 16,
+      "pupils_per_school": 30,
+      "icc": 0,
+      "truth": 0
+    },
+    {
+      "id": 301,
+      "family": "clustering",
+      "schools": 16,
+      "pupils_per_school": 30,
+      "icc": 0,
+      "truth": 0.3
+    },
+    {
+      "id": 302,
+      "family": "clustering",
+      "schools": 16,
+      "pupils_per_school": 30,
+      "icc": 0.05,
+      "truth": 0
+    },
+    {
+      "id": 303,
+      "family": "clustering",
+      "schools": 16,
+      "pupils_per_school": 30,
+      "icc": 0.05,
+      "truth": 0.3
+    },
+    {
+      "id": 304,
+      "family": "clustering",
+      "schools": 16,
+      "pupils_per_school": 30,
+      "icc": 0.2,
+      "truth": 0
+    },
+    {
+      "id": 305,
+      "family": "clustering",
+      "schools": 16,
+      "pupils_per_school": 30,
+      "icc": 0.2,
+      "truth": 0.3
+    },
+    {
+      "id": 306,
+      "family": "clustering",
+      "schools": 48,
+      "pupils_per_school": 30,
+      "icc": 0,
+      "truth": 0
+    },
+    {
+      "id": 307,
+      "family": "clustering",
+      "schools": 48,
+      "pupils_per_school": 30,
+      "icc": 0,
+      "truth": 0.3
+    },
+    {
+      "id": 308,
+      "family": "clustering",
+      "schools": 48,
+      "pupils_per_school": 30,
+      "icc": 0.05,
+      "truth": 0
+    },
+    {
+      "id": 309,
+      "family": "clustering",
+      "schools": 48,
+      "pupils_per_school": 30,
+      "icc": 0.05,
+      "truth": 0.3
+    },
+    {
+      "id": 310,
+      "family": "clustering",
+      "schools": 48,
+      "pupils_per_school": 30,
+      "icc": 0.2,
+      "truth": 0
+    },
+    {
+      "id": 311,
+      "family": "clustering",
+      "schools": 48,
+      "pupils_per_school": 30,
+      "icc": 0.2,
+      "truth": 0.3
+    }
+  ]
+}

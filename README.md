@@ -8,6 +8,8 @@ A reproducible portfolio of nutrition, epidemiology, biostatistics, and machine-
 
 ## Featured: nutrition and machine learning
 
+**New research companions:** [When Methods Fail: 46,000 simulated datasets](projects/methods-stress-test) · [Nutrition ML research brief (PDF)](projects/nutrition-machine-learning/output/pdf/nutrition-ml-research-brief.pdf) · [Published research to inspectable methods](docs/tx-sprouts-research-companion.md).
+
 **Do dietary summaries improve prediction of measured HbA1c in a separate NHANES survey cycle?**
 
 [Open the complete project](projects/nutrition-machine-learning) · [Executed results](projects/nutrition-machine-learning/outputs/report.md) · [Methods](projects/nutrition-machine-learning/docs/methods.md) · [Model card](projects/nutrition-machine-learning/docs/model-card.md)
@@ -93,6 +95,8 @@ The core lab demonstrates statistical implementation under known synthetic condi
 ## Citation
 
 Citation metadata are available in [`CITATION.cff`](CITATION.cff).
+
+[Archiving checklist and Zenodo metadata](docs/archiving.md). Metadata preparation is not a published DOI.
 
 ## License
 

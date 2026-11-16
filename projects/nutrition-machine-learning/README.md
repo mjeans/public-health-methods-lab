@@ -8,6 +8,8 @@ A Python benchmark using real CDC/NCHS NHANES public-use data, combining nutriti
 
 [Read the executed results](outputs/report.md) · [Methods](docs/methods.md) · [Model card](docs/model-card.md) · [Fixed analysis plan](config/analysis-plan.json)
 
+**Research brief:** [Three-page PDF](output/pdf/nutrition-ml-research-brief.pdf) · [Self-contained HTML](outputs/research-brief.html). Both are generated directly from the committed aggregate evidence by [the brief builder](../../scripts/build_nutrition_brief.py); neither refits the models.
+
 ## The result, not just the algorithm
 
 - **3,999 development participants; 3,947 test participants.** Both feature sets use identical cohorts.
